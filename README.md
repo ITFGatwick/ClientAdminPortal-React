@@ -1,70 +1,65 @@
-# Getting Started with Create React App
+# Client Admin Portal
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Introduction
 
-## Available Scripts
+The client admin portal is a work-in-progress application designed to allow a business to manage its clients. 
 
-In the project directory, you can run:
+Each client has an id, a name and a description, as well as a list of other related clients.
 
-### `npm start`
+In its current state the application allows you to:
+- view a table containing the name of every client.
+- view the full details of a single client.
+- create a new client.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Installation
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Clone or download the project.
 
-### `npm test`
+![image](https://user-images.githubusercontent.com/104509589/165735644-1b4879eb-d476-4a14-83df-158447389360.png)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Run `npm install` from anywhere within the project directory. 
 
-### `npm run build`
+### Development server
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Run `npm start` for a dev server. Navigate to `http://localhost:3000/`. The app will automatically reload if you change any of the source files.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Tasks
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+There are a number of small features and bugs that require your attention:
 
-### `npm run eject`
+### Feature: Improve clients table styles
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Acceptance criteria:
+- The background-colour of all even numbered rows in the table body should be a light gray (e.g. `#eeeeee`).
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Bug: Fix font-size toggle
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Reproduction steps:
+- Increase or decrease the font-size using the +/- buttons in the top right corner of the page.
+- Neither the numeric value displayed between the +/- buttons nor the font-size of any element on the page is updated.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Acceptance criteria:
+- Toggling the font-size should update both the displayed value in the top right corner and the font-size of non-header elements on the page.
 
-## Learn More
+### Feature: Implement client creation 
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Acceptance criteria:
+- The create button should be disabled until a name has been entered (the description is optional).
+- After clicking create, a new client should be created using the `addClient` function (currently commented out in CreateClient.js). Redirecting the user to the newly created client is outside the scope of this exercise.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Bug: Fix related clients navigation
 
-### Code Splitting
+Reproduction steps:
+- Navigate to a client from the list on the home page using the view link.
+- Click any related client.
+- Nothing happens.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Acceptance criteria:
+- Clicking a related client should load and display the details of that client.
 
-### Analyzing the Bundle Size
+### Bonus: Delete a client
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Acceptance criteria:
+- In the `Home` component, for each client, add a delete button
+- This will involve adding a new function to src/functions.data.js
+- After deleting, the client should no longer be visible in the table
