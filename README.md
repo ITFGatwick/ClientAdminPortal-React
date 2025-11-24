@@ -61,5 +61,5 @@ Acceptance criteria:
 
 Acceptance criteria:
 - In the `Home` component, for each client, add a delete button
-- This will involve adding a new function to src/functions.data.js
+- This will involve adding a new function to src/functions/data.js
 - After deleting, the client should no longer be visible in the table
